@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>都道府県別 連続面積カルトグラム</title>
+    <!-- Google Fonts: Inter & Noto Sans JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- D3.js and Cartogram-Chart -->
+    <script src="https://unpkg.com/d3@7"></script>
+    <script src="https://unpkg.com/cartogram-chart"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>都道府県別 連続カルトグラム</h1>
+            <p>実際の都道府県の形状（トポロジー）を保ったまま、値の大きさに応じて面積を歪ませたカルトグラムです。<br>計算には少し時間がかかる場合があります。</p>
+        </header>
+
+        <main>
+            <div id="map-container">
+                <!-- Cartogram will be injected here -->
+            </div>
+
+            <aside class="controls">
+                <div class="control-panel">
+                    <h2>データ設定</h2>
+                    <p class="description">data.csv を編集するか、新しいファイルをアップロードしてください。</p>
+                    
+                    <div class="upload-section">
+                        <label for="csv-upload" class="upload-btn">
+                            CSVファイルを選択
+                            <input type="file" id="csv-upload" accept=".csv">
+                        </label>
+                        <span id="file-name">選択されていません</span>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>現在のステータス</h3>
+                        <p id="status-text" style="color: var(--accent); font-weight: bold;">データを読み込んでいます...</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
